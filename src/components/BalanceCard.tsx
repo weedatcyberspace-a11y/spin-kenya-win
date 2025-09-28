@@ -31,6 +31,9 @@ export const BalanceCard = ({
     onWithdraw();
   };
 
+  // Cap the maximum available balance at KSH 210
+  const maxAvailable = Math.min(balance, 210);
+
   return (
     <div className="grid gap-4 md:grid-cols-2">
       {/* Main Balance Card */}
@@ -50,8 +53,13 @@ export const BalanceCard = ({
           
           <div className="mb-6">
             <div className="text-3xl font-bold text-gold mb-1">
-              KSH {balance.toLocaleString()}
+              KSH {maxAvailable.toLocaleString()}
             </div>
+            {balance > 210 && (
+              <p className="text-xs text-muted-foreground">
+                Max withdrawal: KSH 210
+              </p>
+            )}
             {registrationBonus > 0 && (
               <div className="flex items-center gap-2 text-sm">
                 <Gift className="w-4 h-4 text-green" />
@@ -72,7 +80,7 @@ export const BalanceCard = ({
             }`}
           >
             <ArrowUpRight className="w-4 h-4 mr-2" />
-            {canWithdraw ? "Withdraw Now" : `Need KSH ${minWithdrawal - balance} more`}
+            {canWithdraw ? "Withdraw Now" : `Need KSH ${minWithdrawal - maxAvailable} more`}
           </Button>
           
           {canWithdraw && (
