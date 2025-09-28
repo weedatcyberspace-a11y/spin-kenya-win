@@ -47,6 +47,18 @@ export default {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
         },
+        // Gaming specific colors
+        gold: {
+          DEFAULT: "hsl(var(--gold))",
+          light: "hsl(var(--gold-light))",
+        },
+        green: {
+          DEFAULT: "hsl(var(--green))",
+          light: "hsl(var(--green-light))",
+        },
+        purple: "hsl(var(--purple))",
+        blue: "hsl(var(--blue))",
+        orange: "hsl(var(--orange))",
         sidebar: {
           DEFAULT: "hsl(var(--sidebar-background))",
           foreground: "hsl(var(--sidebar-foreground))",
@@ -57,6 +69,18 @@ export default {
           border: "hsl(var(--sidebar-border))",
           ring: "hsl(var(--sidebar-ring))",
         },
+      },
+      backgroundImage: {
+        'gradient-gold': 'var(--gradient-gold)',
+        'gradient-green': 'var(--gradient-green)',
+        'gradient-purple': 'var(--gradient-purple)',
+        'gradient-main': 'var(--gradient-main)',
+      },
+      boxShadow: {
+        'gold': 'var(--shadow-gold)',
+        'green': 'var(--shadow-green)',
+        'glow-gold': 'var(--glow-gold)',
+        'glow-green': 'var(--glow-green)',
       },
       borderRadius: {
         lg: "var(--radius)",
@@ -80,10 +104,37 @@ export default {
             height: "0",
           },
         },
+        "spin": {
+          from: {
+            transform: "rotate(0deg)",
+          },
+          to: {
+            transform: "rotate(360deg)",
+          },
+        },
+        "spin-wheel": {
+          from: {
+            transform: "rotate(0deg)",
+          },
+          to: {
+            transform: "rotate(1440deg)",
+          },
+        },
+        "pulse-gold": {
+          "0%, 100%": {
+            boxShadow: "0 0 20px hsl(45 93% 58% / 0.5)",
+          },
+          "50%": {
+            boxShadow: "0 0 40px hsl(45 93% 58% / 0.8)",
+          },
+        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
+        "spin": "spin 1s linear infinite",
+        "spin-wheel": "spin-wheel 3s cubic-bezier(0.23, 1, 0.32, 1) forwards",
+        "pulse-gold": "pulse-gold 2s ease-in-out infinite",
       },
     },
   },
